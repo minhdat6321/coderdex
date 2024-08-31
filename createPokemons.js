@@ -2,7 +2,7 @@ const fs = require("fs")
 const csv = require("csvtojson")
 const { faker } = require("@faker-js/faker");
 const path = require("path")
-
+const BASE_URL = "https://coderdex-be-diaytio6.onrender.com";
 
 
 const createPokemons = async () => {
@@ -30,7 +30,7 @@ const createPokemons = async () => {
       "abilities": faker.person.jobDescriptor(),
 
       "types": !e.Type2.toLowerCase() ? [e.Type1.toLowerCase()] : [e.Type1.toLowerCase(), e.Type2.toLowerCase()],
-      "url": `/images/${pokemonNames[index]}.png`,
+      "url": `${BASE_URL}/images/${pokemonNames[index]}.png`,
 
     }
   })

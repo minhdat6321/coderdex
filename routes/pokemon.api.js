@@ -59,6 +59,12 @@ router.get('/', function (req, res, next) {
     } else {
       result = data;
     }
+    //check coi co data nao phu hop khong
+    if (!result.length) {
+      const exception = new Error(`NOT FOUND POKEMON ! TRY ANOTHER TYPE OR NAME`);
+      exception.statusCode = 401;
+      throw exception;
+    }
 
     //Number of items skip for selection
     let offset = limit * (page - 1);
